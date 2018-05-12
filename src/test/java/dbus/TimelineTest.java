@@ -7,12 +7,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
 
     abstract T construct(List<E> input);
     abstract E date(int time);
 
-    private final T timeline = construct(dates(0, 1, 2));
+    private final T timeline = construct(dates(0, 5, 9));
 
     private List<E> dates(int... times) {
         return Arrays.stream(times)
@@ -34,6 +36,34 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         // when
         construct(dates(1, 2, 0));
         // then
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void add_should_throw_NullPointerException_when_given_date_is_null() {
+        // given
+        // when
+        timeline.add(null);
+        // then
+    }
+
+    @Test
+    public void add_should_modify_the_timeline_when_given_date_is_not_already_in() {
+        // given
+        E date = date(4);
+        // when
+        timeline.add(date);
+        // then
+        assertThat(timeline.getDates()).isEqualTo(dates(0, 4, 5, 9));
+    }
+
+    @Test
+    public void add_should_not_modify_the_timeline_when_given_date_is_already_in() {
+        // given
+        E date = date(5);
+        // when
+        timeline.add(date);
+        // then
+        assertThat(timeline.getDates()).isEqualTo(dates(0, 5, 9));
     }
 
 }
