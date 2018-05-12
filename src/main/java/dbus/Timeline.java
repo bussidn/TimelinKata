@@ -20,9 +20,9 @@ public interface Timeline<E extends Date> {
     /**
      * retrieve the dates contained in the Timeline container
      *
-     * The list should be ordered
+     * for more information, see class invariants
      *
-     * @return
+     * @return the contained dates
      */
     List<E> getDates();
 }
