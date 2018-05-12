@@ -25,4 +25,13 @@ public interface Timeline<E extends Date> {
      * @return the contained dates
      */
     List<E> getDates();
+
+    /**
+     * add the given date to the container
+     *
+     * if the date is already in the timeline, nothing is added
+     *
+     * @param date the date to add.
+     */
+    void add(E date);
 }
