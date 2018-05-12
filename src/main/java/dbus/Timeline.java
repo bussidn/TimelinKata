@@ -2,6 +2,8 @@ package dbus;
 
 import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * This abstraction represents a timeline in the sense of it is
@@ -34,4 +36,14 @@ public interface Timeline<E extends Date> {
      * @param date the date to add.
      */
     void add(E date);
+
+    /**
+     * remove dates that satisfy the given predicate
+     *
+     * Remove all the dates for which the given predicates return true
+     * Stops removing elements when reaching the 2 elements minimum threshold
+     *
+     * @param predicate the test to perform to remove dates
+     */
+    void remove(Predicate<E> predicate);
 }
