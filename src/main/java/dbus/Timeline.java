@@ -1,9 +1,9 @@
 package dbus;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 /**
  * This abstraction represents a timeline in the sense of it is
@@ -46,4 +46,24 @@ public interface Timeline<E extends Date> {
      * @param predicate the test to perform to remove dates
      */
     void remove(Predicate<E> predicate);
+
+    default boolean isSorted() {
+        return isSorted(getDates());
+    }
+
+    static <E extends Date> boolean isSorted(List<E> dates) {
+        Iterator<E> iter = dates.iterator();
+        if (!iter.hasNext()) {
+            return true;
+        }
+        E date = iter.next();
+        while (iter.hasNext()) {
+            E date2 = iter.next();
+            if (date.compareTo(date2) > 0) {
+                return false;
+            }
+            date = date2;
+        }
+        return true;
+    }
 }
