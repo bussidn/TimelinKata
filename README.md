@@ -1,1 +1,1 @@
-# TimelinKata
+# Timeline Kata
