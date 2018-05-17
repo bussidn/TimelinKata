@@ -111,4 +111,22 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         assertThat(timeline.getDates().size()).isGreaterThan(2);
     }
 
+    @Test
+    public void adding_a_date_in_the_output_list_should_not_change_encapsulated_list() {
+        // given
+        // when
+        timeline.getDates().add(date(4));
+        // then
+        assertThat(timeline.isSorted()).isTrue();
+    }
+
+    @Test
+    public void changes_on_the_output_reference_list_should_not_impact_encapsulated_list() {
+        // given
+        // when
+        timeline.getDates().clear();
+        // then
+        assertThat(timeline.getDates().size()).isGreaterThan(2);
+    }
+
 }
