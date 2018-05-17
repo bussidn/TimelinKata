@@ -141,4 +141,13 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         assertThat(timeline.isSorted()).isTrue();
     }
 
+    @Test
+    public void changes_on_an_output_date_should_not_impact_encapsulated_date() {
+        // given
+        // when
+        timeline.getDates().iterator().next().setTime(10);
+        // then
+        assertThat(timeline.isSorted()).isTrue();
+    }
+
 }
