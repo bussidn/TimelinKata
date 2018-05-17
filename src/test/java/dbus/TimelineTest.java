@@ -2,11 +2,13 @@ package dbus;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
@@ -14,7 +16,8 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
     abstract T construct(List<E> input);
     abstract E date(int time);
 
-    private final List<E> dates = dates(0, 5, 9);
+    private final E zero = date(0);
+    private final List<E> dates = new ArrayList<>(asList(zero, date(5), date(9)));
     private final T timeline = construct(dates);
 
     private List<E> dates(int... times) {
@@ -127,6 +130,15 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         timeline.getDates().clear();
         // then
         assertThat(timeline.getDates().size()).isGreaterThan(2);
+    }
+
+    @Test
+    public void changes_on_the_input_zero_date_should_not_impact_encapsulated_date() {
+        // given
+        // when
+        zero.setTime(10);
+        // then
+        assertThat(timeline.isSorted()).isTrue();
     }
 
 }
