@@ -14,7 +14,8 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
     abstract T construct(List<E> input);
     abstract E date(int time);
 
-    private final T timeline = construct(dates(0, 5, 9));
+    private final List<E> dates = dates(0, 5, 9);
+    private final T timeline = construct(dates);
 
     private List<E> dates(int... times) {
         return Arrays.stream(times)
@@ -90,6 +91,24 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         timeline.remove(d -> true);
         // then
         assertThat(timeline.getDates().size()).isEqualTo(2);
+    }
+
+    @Test
+    public void adding_a_date_in_the_input_list_should_not_change_encapsulated_list() {
+        // given
+        // when
+        dates.add(date(1));
+        // then
+        assertThat(timeline.isSorted()).isTrue();
+    }
+
+    @Test
+    public void changes_on_the_input_reference_list_should_not_impact_encapsulated_list() {
+        // given
+        // when
+        dates.clear();
+        // then
+        assertThat(timeline.getDates().size()).isGreaterThan(2);
     }
 
 }
