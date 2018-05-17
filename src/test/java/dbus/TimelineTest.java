@@ -66,4 +66,30 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         assertThat(timeline.getDates()).isEqualTo(dates(0, 5, 9));
     }
 
+    @Test(expected = NullPointerException.class)
+    public void remove_should_throw_NullPointerException_when_provided_predicate_is_null() {
+        // given
+        // when
+        timeline.remove(null);
+        // then
+    }
+
+    @Test
+    public void remove_should_remove_one_element_when_only_one_element_satisfy_the_predicate() {
+        // given
+        // when
+        timeline.remove(d -> d.equals(new Date(5)));
+        // then
+        assertThat(timeline.getDates()).isEqualTo(dates(0, 9));
+    }
+
+    @Test
+    public void remove_should_keep_at_least_two_elements() {
+        // given
+        // when
+        timeline.remove(d -> true);
+        // then
+        assertThat(timeline.getDates().size()).isEqualTo(2);
+    }
+
 }
