@@ -11,3 +11,5 @@ The responsability is here declined in class invariants that the developper is a
 So, this kata will ask you to design a simple concept and make it more and more harder to do so.
 
 ## Timeline
+
+A timeline is simple a bunch of ordered dates
