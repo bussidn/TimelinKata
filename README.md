@@ -26,6 +26,7 @@ ex : MyTimeline.java
 
 Implement the test class by inheriting the TimelineTest class and provide a constructor for your class and your Date implementation.
 
+```java
 public class MyTimelineTest implements TimelineTest<Date, MyTimeline<Date>> {
 
   public MyTimeline create(List<Date> dates) {
@@ -33,5 +34,6 @@ public class MyTimelineTest implements TimelineTest<Date, MyTimeline<Date>> {
   }
 
 }
+```
 
 
