@@ -18,6 +18,8 @@ So here are the invariants to be aware of :
 - the timeline has always at least 2 dates.
 - the dates are provided in a sorted way.
 
+It is really important to keep those two requirements in mind. You will be responsible for enforcing them.
+
 ### How to begin the kata
 
 To start the kata, simply clone the dedicated branch (normally associated with the session)
