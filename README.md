@@ -50,12 +50,14 @@ public class MyTimeline implements DateTimeline {
 Implement the test class by inheriting the TimelineTest class and provide a constructor for your class and your Date implementation.
 
 ```java
-public class MyTimelineTest implements TimelineTest<Date, MyTimeline<Date>> {
+import java.util.Date;
+import java.util.List;
 
-  public MyTimeline create(List<Date> dates) {
-    return new MyTimeline(dates);
-  }
-
+public class MyTimelineTest extends DateTimelineTest<MyTimeline> {
+    @Override
+    MyTimeline construct(List<Date> input) {
+        return new MyTimeline(input);
+    }
 }
 ```
 
