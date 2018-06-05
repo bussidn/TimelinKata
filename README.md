@@ -21,8 +21,31 @@ So here are the invariants to be aware of :
 
 To start the kata, simply clone the dedicated branch (normally associated with the session)
 
-Your job is to implements the Timeline class, so choose a unique name for your timeline implementation.
+Your job is to implements the DateTimeline class, which is an interface extending Timaline for the java.util.Date class, so choose a unique name for your timeline implementation.
 ex : MyTimeline.java
+
+```java
+import java.util.Date;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class MyTimeline implements DateTimeline {
+    @Override
+    public List<Date> getDates() {
+        return null;
+    }
+
+    @Override
+    public void add(Date date) {
+
+    }
+
+    @Override
+    public void remove(Predicate<Date> predicate) {
+
+    }
+}
+```
 
 Implement the test class by inheriting the TimelineTest class and provide a constructor for your class and your Date implementation.
 
