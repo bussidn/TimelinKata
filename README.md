@@ -61,4 +61,12 @@ public class MyTimelineTest extends DateTimelineTest<MyTimeline> {
 }
 ```
 
+For the test to be able to run, you will have to implement the following contructor :
+
+```java
+    public MyTimeline(List<Date> input) {
+        
+    }
+```
+
 
