@@ -12,7 +12,8 @@ So, this kata will ask you to design a simple concept and make it more and more 
 
 ## Timeline
 
-A timeline is simple a bunch of ordered dates with a beginning date and an end date
+A timeline is simple a bunch of ordered dates with a beginning date and an end date.
+
 So here are the invariants to be aware of :
 - the timeline has always at least 2 dates.
 - the dates are provided in a sorted way.
