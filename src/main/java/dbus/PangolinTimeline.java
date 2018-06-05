@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class PangolinTimeline implements DateTimeline {
+
     public PangolinTimeline(List<Date> input) {
 
     }
