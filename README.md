@@ -1,4 +1,4 @@
-# Timeline Kata
+# Timeline workshop
 
 ## Goal
 
