@@ -38,6 +38,15 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         // then
     }
 
+    @Test
+    public void getDates_should_return_the_provided_list_of_dates() {
+        // given
+        // when
+        List<E> actualDates = timeline.getDates();
+        // then
+        assertThat(actualDates).isEqualTo(dates(0, 5, 9));
+    }
+
     @Test(expected = NullPointerException.class)
     public void add_should_throw_NullPointerException_when_given_date_is_null() {
         // given
