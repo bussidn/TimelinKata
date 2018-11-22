@@ -3,10 +3,10 @@
 ## Goal
 
 The goal of this kata is to work on class invariant.
-The 90's OOP promess was to let developper design real world objects and was all about class responsabilities.
+The 90's OOP promess was to let developper design real world objects and was all about class responsibilities.
 
-While we know the limits of designing the world in a program, class responsability is still something that is to be desired.
-The responsability is here declined in class invariants that the developper is asked to maintain carefully.
+While we know the limits of designing the world in a program, class responsibility is still something that is to be desired.
+The responsibility is here declined in class invariants that the developper is asked to maintain carefully.
 
 So, this kata will ask you to design a simple concept and make it more and more harder to do so.
 
@@ -24,7 +24,7 @@ It is really important to keep those two requirements in mind. You will be respo
 
 To start the kata, simply clone the dedicated branch (normally associated with the session)
 
-Your job is to implements the DateTimeline class, which is an interface extending Timaline for the java.util.Date class, so choose a unique name for your timeline implementation.
+Your job is to implements the DateTimeline class, which is an interface extending Timeline for the java.util.Date class, so choose a unique name for your timeline implementation.
 ex : MyTimeline.java
 
 ```java
@@ -58,8 +58,8 @@ import java.util.List;
 
 public class MyTimelineTest extends DateTimelineTest<MyTimeline> {
     @Override
-    MyTimeline construct(List<Date> input) {
-        return new MyTimeline(input);
+    MyTimeline construct(List<Date> dates) {
+        return new MyTimeline(dates);
     }
 }
 ```
@@ -67,7 +67,7 @@ public class MyTimelineTest extends DateTimelineTest<MyTimeline> {
 For the test to be able to run, you will have to implement the following contructor :
 
 ```java
-    public MyTimeline(List<Date> input) {
+    public MyTimeline(List<Date> dates) {
         
     }
 ```
