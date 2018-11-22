@@ -14,9 +14,9 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
     abstract T construct(List<E> input);
     abstract E date(long time);
 
-    private final T timeline = construct(dates(0, 5, 9));
+    final T timeline = construct(dates(0, 5, 9));
 
-    private List<E> dates(long... times) {
+    List<E> dates(long... times) {
         return Arrays.stream(times)
                 .mapToObj(this::date)
                 .collect(Collectors.toList());
