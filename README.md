@@ -80,3 +80,5 @@ For the test to be able to run, you will have to implement the following contruc
 
 At his point, tests should run and they should all fail. All left for you is to make them pass !!
 Remember tests will only help you meet the requirements. As a developper, you have to design the implementation.
+
+There's no tricks in the given specifications, implementation should be quite simple with the specific exception of the remove method which can be a little bit tricky.
