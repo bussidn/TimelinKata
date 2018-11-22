@@ -70,7 +70,7 @@ To make the tests pass, implement everything in your timeline class. (~MyTimelin
 If you want to add one or more test(s) at some point, do it in your corresponding test class (~MyTimelineTest)
 
 
-For the test to be able to run, you will have to implement the following contructor :
+For the test to be able to run, you will have to implement the following constructor :
 
 ```java
     public MyTimeline(List<Date> dates) {
@@ -82,3 +82,12 @@ At his point, tests should run and they should all fail. All left for you is to 
 Remember tests will only help you meet the requirements. As a developper, you have to design the implementation.
 
 There's no tricks in the given specifications, implementation should be quite simple with the specific exception of the remove method which can be a little bit tricky.
+
+#### Utility method
+
+The goal of the workshop is not to be difficult to implement. The first step is more a way to build an ownership of the class implementation.
+The workshop provides an utility method to check is a list is ordered. This method is available as a default implementation on the Timeline interface. If you need it, you can simple invoke it like this :
+
+```java
+Timeline.isSorted(listToBeTested)
+```
