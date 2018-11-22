@@ -64,11 +64,11 @@ public class MyTimelineTest extends DateTimelineTest<MyTimeline> {
 }
 ```
 
-```
+#### Don't modify workshop classes
 You normally only have to modify the classes you create, don't modify the classes provided by the workshop.
 To make the tests pass, implement everything in your timeline class. (~MyTimeline)
 If you want to add one or more test(s) at some point, do it in your corresponding test class (~MyTimelineTest)
-```
+
 
 For the test to be able to run, you will have to implement the following contructor :
 
@@ -80,5 +80,3 @@ For the test to be able to run, you will have to implement the following contruc
 
 At his point, tests should run and they should all fail. All left for you is to make them pass !!
 Remember tests will only help you meet the requirements. As a developper, you have to design the implementation.
-
-
