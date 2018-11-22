@@ -12,12 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
 
     abstract T construct(List<E> input);
-    abstract E date(int time);
+    abstract E date(long time);
 
     private final List<E> dates = dates(0, 5, 9);
     private final T timeline = construct(dates);
 
-    private List<E> dates(int... times) {
+    private List<E> dates(long... times) {
         return Arrays.stream(times)
                 .mapToObj(this::date)
                 .collect(Collectors.toList());
@@ -37,6 +37,15 @@ public abstract class TimelineTest<E extends Date, T extends Timeline<E>> {
         // when
         construct(dates(1, 2, 0));
         // then
+    }
+
+    @Test
+    public void getDates_should_return_the_provided_list_of_dates() {
+        // given
+        // when
+        List<E> actualDates = timeline.getDates();
+        // then
+        assertThat(actualDates).isEqualTo(dates(0, 5, 9));
     }
 
     @Test(expected = NullPointerException.class)
