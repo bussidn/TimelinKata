@@ -63,6 +63,7 @@ public class MyTimelineTest extends DateTimelineTest<MyTimeline> {
     }
 }
 ```
+WARNING : don't let your IDE make the test class abstract. It should be a concrte class.
 
 #### Don't modify workshop classes
 You normally only have to modify the classes you create, don't modify the classes provided by the workshop.
